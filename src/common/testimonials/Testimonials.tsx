@@ -102,7 +102,7 @@ export default function Testimonials() {
 
         {/* CTA */}
         <div className="mt-20 overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-r from-[#F8FBFF] via-[#FDFEFF] to-[#EEF6FF] shadow-xl">
-  <div className="grid items-center gap-10 px-8 py-8 lg:grid-cols-[1.3fr_.8fr_1fr]">
+  <div className="grid items-center gap-10 px-8 py-8 lg:grid-cols-[1.3fr_.8fr_1fr] light-bg">
 
     {/* Left */}
     <div>
@@ -120,9 +120,9 @@ export default function Testimonials() {
           Book a FREE Consultation →
         </button>
 
-        <button className="rounded-xl border border-slate-300 bg-white px-7 py-3 font-semibold text-slate-800 transition hover:border-blue-600 hover:text-blue-600">
+        {/* <button className="rounded-xl border border-slate-300 bg-white px-7 py-3 font-semibold text-slate-800 transition hover:border-blue-600 hover:text-blue-600">
           Call Our Expert
-        </button>
+        </button> */}
       </div>
     </div>
 

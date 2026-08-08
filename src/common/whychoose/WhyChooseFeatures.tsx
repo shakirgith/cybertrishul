@@ -47,7 +47,7 @@ export default function WhyChooseFeatures() {
           >
             {/* Icon */}
 
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-blue-600 shadow-sm ring-1 ring-blue-100 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white">
               <Icon className="h-7 w-7" />
             </div>
 
@@ -58,7 +58,7 @@ export default function WhyChooseFeatures() {
                 {item.title}
               </h3>
 
-              <p className="mt-2 leading-7 text-slate-600">
+              <p className="mt-2 leading-normal text-slate-600">
                 {item.description}
               </p>
             </div>

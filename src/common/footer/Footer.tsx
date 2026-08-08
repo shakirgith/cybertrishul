@@ -21,6 +21,14 @@ import {
     MapPin,
   } from "lucide-react";
 
+  import {
+    FaFacebookF,
+    FaInstagram,
+    FaLinkedinIn,
+    FaYoutube,
+    FaTwitter,
+  } from "react-icons/fa";
+
 import { quickLinks, services } from "./footerData";
 
 export default function Footer() {
@@ -35,7 +43,7 @@ export default function Footer() {
           <div>
 
             <Image
-              src="/images/logo/logo-white.png"
+              src="/images/logo/white-logo.png"
               alt="Cyber Trishul"
               width={220}
               height={60}
@@ -49,30 +57,62 @@ export default function Footer() {
 
             <div className="mt-6 flex gap-3">
 
-              {/* <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-blue-600 transition"
-              >
-               <FacebookIcon size={18} />
-              </a>
+  <div className="flex items-center gap-3">
+  <a
+    href="#"
+    aria-label="Facebook"
+    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-blue-600 hover:-translate-y-1"
+  >
+    <FaFacebookF className="h-4 w-4" />
+  </a>
 
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-blue-600 transition"
-              >
-               <LinkedinIcon size={18} />
-              </a>
+  <a
+    href="#"
+    aria-label="Instagram"
+    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-pink-600 hover:-translate-y-1"
+  >
+    <FaInstagram className="h-4 w-4" />
+  </a>
 
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-blue-600 transition"
-              >
-               <InstagramIcon size={18} />
-              </a> */}
+  <a
+    href="#"
+    aria-label="LinkedIn"
+    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-blue-700 hover:-translate-y-1"
+  >
+    <FaLinkedinIn className="h-4 w-4" />
+  </a>
 
-<div className="h-10 w-10 rounded-full bg-white/10" />
-  <div className="h-10 w-10 rounded-full bg-white/10" />
-  <div className="h-10 w-10 rounded-full bg-white/10" />
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
 
@@ -92,7 +132,8 @@ export default function Footer() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="block text-slate-400 hover:text-blue-400 transition"
+                 className="block text-slate-400 transition-colors duration-200 hover:!text-blue-400"
+
                 >
                   {item.title}
                 </Link>
@@ -121,7 +162,9 @@ export default function Footer() {
                   <Link
                     key={service.title}
                     href={service.href}
-                    className="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition"
+                    className="flex items-center gap-3 text-slate-400 hover:!text-blue-400 transition-colors duration-200 "
+
+                    
                   >
 
                     <Icon size={17} />

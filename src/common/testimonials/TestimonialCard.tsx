@@ -34,7 +34,7 @@ export default function TestimonialCard({ testimonial }: Props) {
       </div>
 
       {/* Review */}
-      <p className="mb-8 leading-8 text-slate-600">
+      <p className="mb-8 leading-normal text-slate-600">
         "{testimonial.review}"
       </p>
 

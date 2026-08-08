@@ -1,292 +1,185 @@
 "use client";
 
-import React, { useState } from "react";
 import {
-    User,
-    Building2,
-    Mail,
-    Phone,
-    Briefcase,
-    MessageSquare,
-    Send,
-  } from "lucide-react";
-import { serviceOptions } from "./quoteData";
+  User,
+  Building2,
+  Mail,
+  Phone,
+  ShieldCheck,
+  MessageSquare,
+} from "lucide-react";
 
-
-
-type Props = {
-  onSuccess: () => void;
+type QuoteFormProps = {
+  onClose: () => void;
 };
 
-
-/* ===========================
-   ADD HERE
-=========================== */
-
-type InputProps = {
-    icon: React.ReactNode;
-    children: React.ReactNode;
-  };
-  
-  function Field({ icon, children }: InputProps) {
-    return (
-      <div className="flex items-center gap-3 rounded-xl border border-slate-300 bg-white px-4 py-3 transition-all focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-100">
-        <div className="text-slate-400">
-          {icon}
-        </div>
-  
-        <div className="flex-1">
-          {children}
-        </div>
-      </div>
-    );
-  }
-  
-  /* ===========================
-     END
-  =========================== */
-
-export default function QuoteForm({ onSuccess }: Props) {
-  const [form, setForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    console.log(form);
-
-    alert("Thank you! We will contact you shortly.");
-
-    onSuccess();
-  };
-
+export default function QuoteForm({ onClose }: QuoteFormProps) {
   return (
-<>
- <div className="block">
-     <div className="border-b px-8 py-7 w-100 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[3px] text-blue-600">
-            GET FREE CONSULTATION
-          </p>
-
-          <h2 className="mt-2 text-3xl font-extrabold text-slate-900">
-            Request a Quote
-          </h2>
-
-          <p className="mt-3 text-slate-500">
-            Fill in your details and our cybersecurity expert
-            will contact you shortly.
-          </p>
-        </div>
-
- </div>      
-
-
-
-    <form
-      onSubmit={handleSubmit}
-      className="grid gap-5 md:grid-cols-2"
-    >
-
-
-
-          {/* Header */}
-
-         
+    <form className="space-y-5">
 
       {/* Full Name */}
-
-      <Field icon={<User size={18} />}>
       <div>
-        <label className="mb-2 block text-sm font-semibold text-slate-700">
-          Full Name *
+        <label
+          htmlFor="fullName"
+          className="mb-2 block text-sm font-semibold text-slate-700"
+        >
+          Full Name <span className="text-red-500">*</span>
         </label>
 
-       
-        <input
-            type="text"
-            name="name"
-            placeholder="Full Name *"
-            required
-            value={form.name}
-            onChange={handleChange}
-            className="w-full bg-transparent outline-none"
-        />
-      
-      </div>
-      </Field>
+        <div className="relative">
+          <User className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
 
-      {/* Company */}
-      <Field icon={<Building2 size={18} />}>
+          <input
+            id="fullName"
+            name="fullName"
+            type="text"
+            placeholder="Enter your full name"
+            required
+            className="w-full rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          />
+        </div>
+      </div>
+
+      {/* Company Name */}
       <div>
-        <label className="mb-2 block text-sm font-semibold text-slate-700">
+        <label
+          htmlFor="companyName"
+          className="mb-2 block text-sm font-semibold text-slate-700"
+        >
           Company Name
         </label>
 
-       
-        <input
+        <div className="relative">
+          <Building2 className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+
+          <input
+            id="companyName"
+            name="companyName"
             type="text"
-            name="company"
-            placeholder="Company Name"
-            value={form.company}
-            onChange={handleChange}
-            className="w-full bg-transparent outline-none"
-        />
+            placeholder="Enter your company name"
+            className="w-full rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          />
+        </div>
       </div>
-      </Field>
 
       {/* Email */}
-
-      <Field icon={<Mail size={18} />}>
       <div>
-        <label className="mb-2 block text-sm font-semibold text-slate-700">
-          Email Address *
+        <label
+          htmlFor="email"
+          className="mb-2 block text-sm font-semibold text-slate-700"
+        >
+          Email Address <span className="text-red-500">*</span>
         </label>
 
-       
-        <input
-            type="email"
+        <div className="relative">
+          <Mail className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+
+          <input
+            id="email"
             name="email"
-            placeholder="Email Address *"
+            type="email"
+            placeholder="Enter your email address"
             required
-            value={form.email}
-            onChange={handleChange}
-            className="w-full bg-transparent outline-none"
-        />
-        
+            className="w-full rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          />
+        </div>
       </div>
-      </Field>
 
-      {/* Mobile */}
-      <Field icon={<Phone size={18} />}>
+      {/* Mobile Number */}
       <div>
-        <label className="mb-2 block text-sm font-semibold text-slate-700">
-          Mobile Number *
+        <label
+          htmlFor="mobile"
+          className="mb-2 block text-sm font-semibold text-slate-700"
+        >
+          Mobile Number <span className="text-red-500">*</span>
         </label>
 
-        
-        <input
+        <div className="relative">
+          <Phone className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+
+          <input
+            id="mobile"
+            name="mobile"
             type="tel"
-            name="phone"
-            placeholder="Mobile Number *"
+            placeholder="Enter your mobile number"
             required
-            value={form.phone}
-            onChange={handleChange}
-            className="w-full bg-transparent outline-none"
-        />
-        
+            className="w-full rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          />
+        </div>
       </div>
-      </Field>
 
       {/* Service */}
-      <Field icon={<Briefcase size={18} />}>
-      <div className="md:col-span-2">
-        <label className="mb-2 block text-sm font-semibold text-slate-700">
+      <div>
+        <label
+          htmlFor="service"
+          className="mb-2 block text-sm font-semibold text-slate-700"
+        >
           Service Required
         </label>
 
-{/*        
-        <select
+        <div className="relative">
+          <ShieldCheck className="pointer-events-none absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-slate-400" />
+
+          <select
+            id="service"
             name="service"
-            value={form.service}
-            onChange={handleChange}
-            className="w-full bg-transparent outline-none"
-        >
-            <option value="">Select Service</option>
-
-            {serviceOptions.map((item) => (
-            <option key={item} value={item}>
-                {item}
+            defaultValue=""
+            className="w-full appearance-none rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-10 text-sm text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          >
+            <option value="" disabled>
+              Select a service
             </option>
-            ))}
-        </select> */}
-
-
-        <select
-  className="w-full bg-white text-slate-900 outline-none"
->
-  <option value="">Select Service</option>
-  <option value="soc" className="text-slate-900 bg-white">
-    SOC Monitoring
-  </option>
-  <option value="vapt" className="text-slate-900 bg-white">
-    VAPT Services
-  </option>
-  <option value="cloud" className="text-slate-900 bg-white">
-    Cloud Security
-  </option>
-  <option value="firewall" className="text-slate-900 bg-white">
-    Firewall Security
-  </option>
-  <option value="endpoint" className="text-slate-900 bg-white">
-    Endpoint Security
-  </option>
-</select>
-        
+            <option value="firewall">Firewall Security</option>
+            <option value="endpoint">Endpoint Security</option>
+            <option value="cloud">Cloud Security</option>
+            <option value="vapt">VAPT Services</option>
+            <option value="compliance">Compliance</option>
+            <option value="soc">SOC Monitoring</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
       </div>
-      </Field>
 
       {/* Message */}
+      <div>
+        <label
+          htmlFor="message"
+          className="mb-2 block text-sm font-semibold text-slate-700"
+        >
+          Message
+        </label>
 
-      <div className="md:col-span-2 rounded-xl border border-slate-300 p-4 focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-100">
+        <div className="relative">
+          <MessageSquare className="absolute left-4 top-4 h-5 w-5 text-slate-400" />
 
-        <div className="mb-3 flex items-center gap-2 text-slate-400">
-        <MessageSquare size={18} />
-        <span className="text-sm">
-            Message
-        </span>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            placeholder="Tell us about your security requirements..."
+            className="w-full resize-none rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          />
         </div>
-
-        <textarea
-        rows={5}
-        name="message"
-        placeholder="Tell us about your requirement..."
-        value={form.message}
-        onChange={handleChange}
-        className="w-full resize-none bg-transparent outline-none"
-        />
-
-        </div>
+      </div>
 
       {/* Buttons */}
-
-      <div className="flex justify-end gap-4 md:col-span-2">
-
+      <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:justify-end">
         <button
           type="button"
-          onClick={onSuccess}
-          className="rounded-xl border border-slate-300 px-6 py-3 font-semibold transition hover:bg-slate-100"
+          onClick={onClose}
+          className="w-full rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 sm:w-auto"
         >
           Cancel
         </button>
 
         <button
-        type="submit"
-        className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-3 font-semibold text-white transition hover:bg-blue-700"
+          type="submit"
+          className="w-full rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 sm:w-auto"
         >
-        <Send size={18} />
-
-        Request Quote
+          Request Quote
         </button>
-
       </div>
+
     </form>
-    </>
   );
 }

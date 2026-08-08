@@ -47,10 +47,10 @@ export default function HeroImage() {
       <div className="relative z-10">
 
         <Image
-          src="/images/hero/hero-img.jpg"
+          src="/images/hero/hero-img.png"
           alt="Cyber Security"
-          width={560}
-          height={560}
+          width={563}
+          height={497}
           priority
           className="relative z-10"
         />

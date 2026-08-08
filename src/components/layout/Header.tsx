@@ -9,26 +9,39 @@ import QuoteModal from "@/common/quote";
 
 
 
+
+
 import Navbar from "./Navbar";
 import MobileMenu from "./MobileMenu";
 
+
 export default function Header() {
   const [openQuote, setOpenQuote] = useState(false);
+
+
   return (
     <>
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white backdrop-blur-md ">
       <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-3">
-          <Image
-            src="/images/logo/logo-icon.png"
+          {/* <Image
+            src="/images/logo/logo-icon1.png"
             alt="Cyber Trishul"
-            width={46}
-            height={46}
+            width={45}
+            height={45}
+            priority
+          /> */}
+           <Image
+            src="/images/logo/logo.png"
+            alt="Cyber Trishul"
+            width={220}
+            height={45}
             priority
           />
+       
 
-          <div className="leading-none">
+          {/* <div className="leading-none">
             <h2 className="text-[20px] font-extrabold tracking-tight text-slate-900">
               CYBER TRISHUL
             </h2>
@@ -36,7 +49,7 @@ export default function Header() {
             <p className="mt-1 text-[13px] text-slate-500">
               Secure. Protect. Defend
             </p>
-          </div>
+          </div> */}
         </Link>
 
         {/* Desktop Navigation */}
@@ -89,7 +102,9 @@ export default function Header() {
 
         {/* Mobile Menu */}
         <div className="lg:hidden">
-          <MobileMenu />
+          <MobileMenu 
+          onQuoteClick={() => setOpenQuote(true)} 
+            />
         </div>
       </div>
 

@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { X } from "lucide-react";
 import QuoteForm from "./QuoteForm";
-import QuoteBanner from "./QuoteBanner";
 
 type QuoteModalProps = {
   open: boolean;
@@ -14,65 +12,39 @@ export default function QuoteModal({
   open,
   onClose,
 }: QuoteModalProps) {
-  // ESC key close
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
-
-    if (open) {
-      document.addEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "auto";
-    };
-  }, [open, onClose]);
-
   if (!open) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-5"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-5xl overflow-hidden rounded-[28px] bg-white shadow-[0_30px_80px_rgba(0,0,0,0.25)]"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close */}
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 px-4 py-6 backdrop-blur-sm">
+      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-2xl">
 
-        <button
-          onClick={onClose}
-          className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 transition hover:bg-red-100"
-        >
-          <X size={20} />
-        </button>
+        {/* Header */}
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-5 py-4 sm:px-7">
+          <div>
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
+              Get Free Security Consultation
+            </h2>
 
-       
+            <p className="mt-1 text-sm text-slate-500">
+              Tell us about your security requirements.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
         {/* Form */}
-
-        
-
-        <div className="grid lg:grid-cols-[380px_1fr]">
-
-            
-
-        <QuoteBanner />
-
-        <div className="p-8">
-        <QuoteForm onSuccess={onClose} />
+        <div className="px-5 py-6 sm:px-7 sm:py-7">
+          <QuoteForm onClose={onClose} />
         </div>
 
-        
-
-        </div>
-
-        
       </div>
     </div>
   );

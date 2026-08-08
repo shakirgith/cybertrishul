@@ -16,6 +16,7 @@ export default function FooterLinks() {
             <Link
             href={link.href}
             className="group flex items-center text-slate-400 transition hover:text-blue-500"
+            
             >
             <span className="mr-2 h-[2px] w-0 bg-blue-500 transition-all duration-300 group-hover:w-3" />
 

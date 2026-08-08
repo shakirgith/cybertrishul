@@ -3,11 +3,24 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, PhoneCall, ArrowRight } from "lucide-react";
+// import QuoteModal from "@/components/common/quote/QuoteModal";
+
+
+
+
+type MobileMenuProps = {
+  onQuoteClick: () => void;
+};
+
 
 import { navigation } from "@/data/navigation";
 
-export default function MobileMenu() {
+export default function MobileMenu({
+  onQuoteClick,
+}: MobileMenuProps) {
+
   const [open, setOpen] = useState(false);
+  // const [openQuote, setOpenQuote] = useState(false);
 
   return (
     <>
@@ -43,7 +56,7 @@ export default function MobileMenu() {
           </div>
 
           {/* Navigation */}
-          <nav className="px-5 py-6">
+          <nav className="px-5 py-6 dark-bg">
             <ul className="space-y-5">
               {navigation.map((item) => (
                 <li key={item.title}>
@@ -77,15 +90,18 @@ export default function MobileMenu() {
                 </div>
               </div>
 
-              <Link
-                href="/contact"
-                onClick={() => setOpenQuote(true)}
-                className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white"
-              >
-                Get a Quote
+            <button
+  type="button"
+  onClick={() => {
+    setOpen(false);
+    onQuoteClick();
+  }}
+  className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white"
+>
+  Get a Quote
 
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+  <ArrowRight className="h-4 w-4" />
+</button>
             </div>
           </nav>
         </div>

@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import {
   Users,
   ShieldCheck,
@@ -30,15 +30,15 @@ const stats = [
   },
 ];
 
-const brands = [
-  "Microsoft",
-  "Fortinet",
-  "Palo Alto",
-  "Cisco",
-  "Sophos",
-  "AWS",
-  "Azure",
-];
+// const brands = [
+//   "Microsoft",
+//   "Fortinet",
+//   "Palo Alto",
+//   "Cisco",
+//   "Sophos",
+//   "AWS",
+//   "Azure",
+// ];
 
 export default function HeroStats() {
   return (
@@ -99,19 +99,59 @@ export default function HeroStats() {
 
         {/* Brands */}
 
-        <div className="flex flex-wrap items-center justify-center gap-10 px-10 py-7">
+        <div className="flex brandImages items-center justify-center px-6 py-0 sm:px-10 sm:py-2">
+          <Image
+            src="/images/brands/brand-img_01.png"
+            alt="Trusted cybersecurity technology partners"
+            width={220}
+            height={82}
+            className="h-auto w-full max-w-[1400px] object-contain"
+          />
 
-          {brands.map((brand) => (
-            <span
-              key={brand}
-              className="text-2xl font-bold tracking-tight text-slate-600 transition hover:text-blue-600"
-            >
-              {brand}
-            </span>
-          ))}
+          <Image
+            src="/images/brands/brand-img_02.png"
+            alt="Trusted cybersecurity technology partners"
+            width={224}
+            height={82}
+            className="h-auto w-full max-w-[1400px] object-contain"
+          />
 
+          <Image
+            src="/images/brands/brand-img_03.png"
+            alt="Trusted cybersecurity technology partners"
+            width={232}
+            height={82}
+            className="h-auto w-full max-w-[1400px] object-contain"
+          />
+           <Image
+            src="/images/brands/brand-img_04.png"
+            alt="Trusted cybersecurity technology partners"
+            width={172}
+            height={82}
+            className="h-auto w-full max-w-[1400px] object-contain"
+          />
+           <Image
+            src="/images/brands/brand-img_05.png"
+            alt="Trusted cybersecurity technology partners"
+            width={209}
+            height={82}
+            className="h-auto w-full max-w-[1400px] object-contain"
+          />
+           <Image
+            src="/images/brands/brand-img_06.png"
+            alt="Trusted cybersecurity technology partners"
+            width={155}
+            height={82}
+            className="h-auto w-full max-w-[1400px] object-contain"
+          />
+           <Image
+            src="/images/brands/brand-img_07.png"
+            alt="Trusted cybersecurity technology partners"
+            width={188}
+            height={82}
+            className="h-auto w-full max-w-[1400px] object-contain"
+          />
         </div>
-
       </div>
 
     </div>
