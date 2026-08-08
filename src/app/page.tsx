@@ -10,13 +10,13 @@ import Footer from "@/common/footer/Footer";
 export default function Home() {
   return (
     <>
-      <Header />
+     
       <Hero />
       <Services />
       <WhyChoose />
       <Industries />
       <Testimonials />
-      <Footer />
+    
     </>
   );
 }

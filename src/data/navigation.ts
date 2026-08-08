@@ -19,8 +19,8 @@
 //     dropdown: true,
 //   },
 //   {
-//     label: "Solutions",
-//     href: "/solutions",
+//     label: "Industries",
+//     href: "/industries",
 //     dropdown: true,
 //   },
 //   {
@@ -43,8 +43,8 @@ export const navigation = [
     href: "/services",
   },
   {
-    title: "Solutions",
-    href: "/solutions",
+    title: "Industries",
+    href: "/industries",
   },
   {
     title: "Contact",
